@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090d">
+<title>JK TOURNAMENT</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--red:#ff263b;--gold:#ffc928;--bg:#09090d;--panel:#17171f;--muted:#aaa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#351018 0,#09090d 45%);color:#fff;font-family:system-ui,"Noto Sans Bengali",sans-serif}
+header{padding:22px 16px 18px;text-align:center;border-bottom:1px solid #54202a}
+.logo{display:inline-grid;place-items:center;width:76px;height:76px;border:3px solid var(--gold);border-radius:22px;transform:rotate(-4deg);font-size:32px;font-weight:1000;color:var(--gold);box-shadow:0 0 24px #ff263b66}
+h1{margin:12px 0 3px;font-size:clamp(25px,6vw,38px);letter-spacing:2px}header p{margin:0;color:#ffc928;font-weight:700;letter-spacing:2px}
+main{max-width:900px;margin:auto;padding:16px}.hero{padding:22px;border:1px solid #782331;border-radius:20px;background:linear-gradient(120deg,#351018,#17121a 65%,#24170b);box-shadow:0 12px 35px #0008}
+.hero h2{font-size:26px;margin:0 0 8px}.hero p{color:#ddd;margin:0 0 16px}.tag{display:inline-block;color:#111;background:var(--gold);padding:5px 10px;border-radius:20px;font-size:12px;font-weight:900}
+nav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:16px 0}
+nav button,.action{border:1px solid #65303a;background:#19141b;color:white;border-radius:12px;padding:12px 6px;font-weight:800;cursor:pointer}
+nav button.active{background:var(--red);border-color:var(--red)}
+section{display:none}.show{display:block}.card{background:var(--panel);border:1px solid #33313a;border-radius:16px;padding:16px;margin:12px 0}
+.card h3{margin:0 0 8px;color:var(--gold)}.muted{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.action{background:var(--red);border:0;padding:12px 18px}.outline{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+input,select{width:100%;padding:12px;margin:7px 0 12px;background:#0e0e13;border:1px solid #4a424a;border-radius:10px;color:white}
+label{font-size:14px;color:#ddd}.notice{border-left:3px solid var(--gold);padding:10px 12px;background:#282115;border-radius:7px;color:#f4e5b9;font-size:13px}
+table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px;border-bottom:1px solid #38343b}th{color:var(--gold)}
+footer{text-align:center;color:#888;padding:24px;font-size:12px}
+</style>
+</head>
+<body>
+<header><div class="logo">JK</div><h1>JK TOURNAMENT</h1><p>PLAY • COMPETE • WIN</p></header>
+<main>
+<div class="hero"><span class="tag">FREE FIRE COMMUNITY</span><h2>স্বাগতম JK TOURNAMENT-এ!</h2><p>টুর্নামেন্টের তথ্য, রেজিস্ট্রেশন, পয়েন্ট টেবিল ও ফলাফল এক জায়গায় দেখুন।</p><button class="action" onclick="tab('tournaments')">টুর্নামেন্ট দেখুন</button></div>
+<nav>
+<button class="active" onclick="tab('home',this)">হোম</button><button onclick="tab('tournaments',this)">টুর্নামেন্ট</button><button onclick="tab('register',this)">রেজিস্ট্রেশন</button><button onclick="tab('points',this)">পয়েন্ট</button><button onclick="tab('team',this)">RHK টিম</button><button onclick="tab('results',this)">ফলাফল</button><button onclick="tab('admin',this)">অ্যাডমিন</button>
+</nav>
+<section id="home" class="show">
+<div class="grid">
+<div class="card"><h3>🏆 টুর্নামেন্ট</h3><p class="muted">Solo, Duo ও Squad ম্যাচের তথ্য দেখুন।</p></div>
+<div class="card"><h3>🎮 প্লেয়ার রেজিস্ট্রেশন</h3><p class="muted">আপনার গেমের নাম ও UID দিয়ে ডেমো রেজিস্ট্রেশন করুন।</p></div>
+<div class="card"><h3>📊 পয়েন্ট টেবিল</h3><p class="muted">ম্যাচের পয়েন্ট ও অবস্থান দেখুন।</p></div>
+</div>
+<div class="notice">এটি প্রাথমিক ডেমো। এখনো কোনো আসল টুর্নামেন্ট, পেমেন্ট বা পুরস্কার চালু নেই।</div>
+</section>
+<section id="tournaments"><div class="card"><h3>আসন্ন টুর্নামেন্ট</h3><p><b>JK Community Match</b></p><p class="muted">Mode: Squad · তারিখ: পরে ঘোষণা করা হবে · Entry: ফ্রি ডেমো</p><span class="tag">COMING SOON</span></div></section>
+<section id="register"><div class="card"><h3>প্লেয়ার রেজিস্ট্রেশন</h3><form onsubmit="event.preventDefault();document.getElementById('msg').textContent='ডেমো তথ্য এই পেজেই দেখানো হয়েছে; সার্ভারে জমা হয়নি।';"><label>প্লেয়ারের নাম</label><input required placeholder="আপনার নাম"><label>Free Fire UID</label><input required inputmode="numeric" placeholder="আপনার UID"><label>টিমের নাম (ঐচ্ছিক)</label><input placeholder="টিমের নাম"><label>মোড</label><select><option>Solo</option><option>Duo</option><option>Squad</option></select><button class="action">ডেমো রেজিস্টার</button></form><p id="msg" class="muted"></p><div class="notice">এখানে কোনো টাকা বা পেমেন্ট তথ্য দেবেন না।</div></div></section>
+<section id="points"><div class="card"><h3>পয়েন্ট টেবিল</h3><p class="muted">ম্যাচ শুরু হলে আয়োজকরা যাচাইকৃত পয়েন্ট যোগ করবেন।</p><table><tr><th>অবস্থান</th><th>টিম</th><th>পয়েন্ট</th></tr><tr><td>—</td><td>এখনো ফল নেই</td><td>—</td></tr></table></div></section>
+<section id="team"><div class="card"><h3>RHK TEAM</h3><p class="muted">টিমের সদস্যদের নাম পরে যোগ করা যাবে।</p><div class="grid"><div>👑 Team Leader<br><b>সদস্য ১</b></div><div>⭐ Co-Leader<br><b>সদস্য ২</b></div><div>🎮 Member<br><b>সদস্য ৩</b></div><div>🎮 Member<br><b>সদস্য ৪</b></div><div>🎮 Member<br><b>সদস্য ৫</b></div></div></div></section>
+<section id="results"><div class="card"><h3>ম্যাচের ফলাফল</h3><p class="muted">এখনো কোনো ম্যাচের ফল প্রকাশ করা হয়নি।</p></div></section>
+<section id="admin"><div class="card"><h3>🔐 অ্যাডমিন প্যানেল</h3>
+<p class="muted">ডেমোতে আপনিই একমাত্র অ্যাডমিন। এটি এখনো পাসওয়ার্ড-সুরক্ষিত সার্ভার লগইন নয়।</p>
+<label>টুর্নামেন্টের নাম</label><input id="eventName" placeholder="যেমন: JK Squad Match">
+<label>মোড</label><select id="eventMode"><option>Solo</option><option>Duo</option><option>Squad</option></select>
+<label>ম্যাচের তারিখ ও সময়</label><input id="eventTime" placeholder="তারিখ ও সময় লিখুন">
+<label>নিয়ম / ঘোষণা</label><input id="eventRules" placeholder="ম্যাচের নিয়ম লিখুন">
+<button class="action" onclick="previewEvent()">ডেমো টুর্নামেন্ট তৈরি</button>
+<p id="adminMsg" class="muted"></p>
+<div class="notice">এই ডেমোতে তথ্য স্থায়ীভাবে সংরক্ষণ হয় না। আসল অ্যাডমিন লগইন, ডেটাবেস ও নিরাপত্তা যাচাই পরে করতে হবে। আপাতত টাকা বা এন্ট্রি ফি সংগ্রহের ব্যবস্থা নেই।</div>
+</div></section>
+</main><footer>© JK TOURNAMENT · Community demo</footer>
+<script>
+function tab(id,btn){document.querySelectorAll('main section').forEach(s=>s.classList.remove('show'));document.getElementById(id).classList.add('show');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');else{const b=[...document.querySelectorAll('nav button')].find(x=>x.textContent.includes('টুর্নামেন্ট'));if(id==='tournaments'&&b)b.classList.add('active')}}
+function previewEvent(){
+ const n=document.getElementById('eventName').value.trim();
+ const m=document.getElementById('eventMode').value;
+ const t=document.getElementById('eventTime').value.trim();
+ const r=document.getElementById('eventRules').value.trim();
+ document.getElementById('adminMsg').textContent = n ? `ডেমো প্রিভিউ: ${n} · ${m} · ${t || 'সময় পরে জানানো হবে'} · ${r || 'নিয়ম পরে জানানো হবে'}` : 'আগে টুর্নামেন্টের নাম লিখুন।';
+}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
+</script>
+</body></html>
