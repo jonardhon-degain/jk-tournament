@@ -203,6 +203,44 @@ function previewEvent(){
 
 updateRoster();
 </script>
+<section id="adminDemo">
+  <div class="card">
+    <h3>🔐 JK Admin — Demo</h3>
+    <p class="muted">শুধু এই ব্রাউজারে সংরক্ষিত পরীক্ষামূলক তথ্য।</p>
+    <button class="action" onclick="showDemoTeams()">রেজিস্ট্রেশন দেখুন</button>
+    <div id="demoTeams"></div>
+  </div>
+</section>
+
+<script>
+function showDemoTeams() {
+  const area = document.getElementById("demoTeams");
+  const teams = JSON.parse(localStorage.getItem("jkDemoTeams") || "[]");
+
+  if (!teams.length) {
+    area.textContent = "এখনো কোনো ডেমো টিম সংরক্ষিত নেই।";
+    return;
+  }
+
+  area.innerHTML = teams.map((team, i) => `
+    <div class="card">
+      <h3>${team.name}</h3>
+      <p>খেলোয়াড়: ${team.count} জন</p>
+      <button class="action" onclick="deleteDemoTeam(${i})">মুছুন</button>
+    </div>
+  `).join("");
+}
+
+function deleteDemoTeam(index) {
+  const teams = JSON.parse(localStorage.getItem("jkDemoTeams") || "[]");
+  teams.splice(index, 1);
+  localStorage.setItem("jkDemoTeams", JSON.stringify(teams));
+  showDemoTeams();
+}
+</script>
+</body>
+</html>
+
 </body>
  </html>
  
